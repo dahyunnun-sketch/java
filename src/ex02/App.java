@@ -7,7 +7,8 @@ public class App {
         학과 학과1 = new 학과("D001", "컴퓨터공학",10);
         System.out.println(학과1);
 
-        학과 학과2 = new 학과("D002", "일어과",20);
+        // new를 만나서 생성자가 실행이 된다 !
+        학과 학과2 = new 학과("D002", 20);
         System.out.println(학과2);
     }
 }
