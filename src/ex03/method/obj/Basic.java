@@ -1,6 +1,13 @@
 package ex03.method.obj;
 
+import java.util.Arrays;
+
 public class Basic {
+
+    // 반환이 있는 메서드
+    // 반환이 없는 메서드 (void)
+    // 정적 메서드/정적 필드 (static)
+    // 객체를 생성하지 않고 클래스 이름으로 바로 불러와서 사용할 수 있는 메서드/필드
 
     public void info(String name, int age, double height) {
        
@@ -57,7 +64,7 @@ public class Basic {
      * @param bmi
      */    
     // + bmiToStr(bmi:double):String
-    public String bmiToStr(double bmi){
+    public static String bmiToStr(double bmi){
         // 변수 선언
         String str;
         // 변수 초기화
@@ -86,6 +93,7 @@ public class Basic {
     // static 키워드 : 프로그램 시작과 동시에 메모리에 올라간다 !!
     // 생성하지 않고 사용할 수 있다
     // 지들끼리 호출할 수 있다
+    /*
     public static void main(String[] args) {
         double bmi = getBmi(1.63, 55.5);
         System.out.println(bmi);
@@ -99,5 +107,172 @@ public class Basic {
         long l = 100; // 자동형변환
         System.out.println((double)100/3);
     }
+         */
+
+
+
+
+
     
+    public static int[] ex01(){
+
+        // 배열 -> 컬렉션프레임워크 (List, Set, Map 객체를 이용할 수 있음)
+        // 배열 만들기
+        // 타입이 같은 데이터를 여러개 보관
+        // (방의)길이(갯수)가 정해져 있다
+
+        // 배열을 만들 때 값을 넣고 배열을 만드는 방법
+        int[] lotto = {1,2,3,4,5,6};
+        lotto[0] = 1;
+
+        // 방의 갯수를 지정해서 배열을 만드는 방법
+        // 똑같은 이름으로 변수 못 만듦 (lotto1)
+        int[] lotto1 = new int[6];
+        lotto1[0] = 1;
+
+
+        // 배열의 선언과 초기화를 동시에 하는 방법
+        String str[] = {"다현", "다민"};
+
+        // 배열의 선언
+        // 배열은 타입의 기본값으로 초기화
+        String str1[] = new String[2];
+        // 배열을 초기화
+        str1[0] = "다현";
+
+
+        // 반복문을 이용해서 배열에 접근해서 값을 출력
+        // 초기값, 비교, 증감값
+        // 배열의 길이 : 배열의 변수이름.length
+        for(int i=0;i<str1.length;i++){
+            System.out.println("str1 : " + str1[i]);
+        }
+
+        // 향상된 for문
+        String lottoStr = "";
+        for(int num : lotto1){
+            // System.out.println(num + ", ");
+            lottoStr = num + ", ";
+        }
+
+        System.out.println("lotto : " + lottoStr);
+        System.out.println(lottoStr.substring(0, lottoStr.length()-2));
+
+        System.out.println();
+        System.out.println("hello".length());
+        System.err.println("hello".substring(2));
+        // 시작인덱스 포함, 끝인덱스 불포함
+        System.out.println("hello".substring(0,3));
+        // 해당 문자열의 위치를 반환
+        // 해당 문자열이 없으면 -1을 반환
+        System.out.println("hello".indexOf("l"));
+        if("hello".indexOf("l") > -1) {
+            System.out.println("문자가 포함되어 있어요");
+        }
+        // 앞뒤의 공백을 모두 제거
+        System.out.println("  abc123  ".trim());
+        System.out.println("hello".replace("l","o"));
+        System.out.println("abc".equals("abc"));
+
+        String a = "abc";
+        String b = "abc";
+
+        System.out.println("a==b : " + (a==b));
+        System.out.println("a==b : " + a.equals(b));
+
+        String aa = new String("abc");
+        String bb = new String("abc");
+
+        // == : 비교연산자
+        System.out.println("aa==bb : " + (aa == bb));
+        // 💥💥 문자열의 값을 비교할 때는 equals 메서드를 이용해야 함 !!!!
+        System.out.println("aa==bb : " + aa.equals(bb));
+        
+        // 타입의 기본값
+        // 필드를 초기화하지 않은 경우 타입의 기본값이 들어감
+        // 배열의 값을 초기화하지 않은 경우 타입의 기본값
+        // 참조타입의 기본값 = null
+        String name = null;
+        // 예외를 처리하지 않으면 프로그램이 비정상적으로 종료 !!!! -> try/catch
+        // System.out.println(name.length()); // -> nullPointException
+        if (name != null) {
+            System.out.println("name : " + name);
+        } else{
+            System.out.println("name 은 null 입니다.");
+        }
+
+        String res = "Y";
+        // 문자열이 Y이면 계속 실행
+        if (res != null && res.equals("Y")) {
+            
+        }
+        // 리터럴이 먼저 오는경우, null 체크 할 필요가 없음
+        // 대소문자를 구분하지 않고 비교
+        if ("y".equalsIgnoreCase(res)) {
+            System.out.println("Y비교 - 대소문자를 가리지 않음");
+        }
+
+        return lotto;
+
+
+        // 0-1미만의 임의의 실수를 만들어 주는 기능 (로또)
+        // 유틸리티
+        //double random = Math.random() * 46 + 1;
+        // 형변환
+        // double 타입 -> int 타입으로
+        //int num = (int)random;
+
+    }
+
+    // + getLotto() - 1-46까지 임의의 숫자를 뽑아서 배열에 담아서 반환
+    // 접제 반환타입 메서드명(매개변수타입, 매개변수이름, ...){ }
+    public static int[] getLotto(){
+        // 1. 정수(숫자) 6개를 저장할 수 있는 배열을 만들고 반환
+        int[] lotto = new int[6];
+
+        
+        // 반복문을 이용해서 배열에 임의의 수를 생성해서 집어넣기
+        // i = 0부터 5까지 1씩 증가하면서 코드블럭을 실행
+        // i = 방의 인덱스
+        for(int i=0; i<lotto.length; i++){
+            lotto[i] = (int)(Math.random() * 45) + 1;
+
+            // 임의의 번호를 뽑아서 변수에 저장
+            // 배열을 돌면서 중복된 값이 있는지 확인
+            // j = 0부터 i(인덱스)보다 작을 때 까지 1씩 증가하면서 코드블럭을 실행
+            for(int j=0; j<i; j++){
+                if (lotto[i] == lotto[j]) {
+                    System.out.println(Arrays.toString(lotto));
+                    System.out.println("중복되었어요."); // 중복되었을 때만 나옴
+                    i--; // 인덱스 감소
+                    break;
+                }
+            }
+        }
+        // 배열의 요소의 값을 출력
+        // Arrays.toString(lotto); 은 반환하는 메서드이기 때문에 밑에처럼 출력을 해야함
+        // 배열의 값을 초기화하지 않으면 타입의 기본값(0, 0.0)이 들어감
+        System.out.println(Arrays.toString(lotto)); // 출력
+        return lotto;
+    }
+
+    public static void printMenu(){
+        System.out.println("""
+                메뉴
+                1. BMI 계산기
+                2. 로또생성기
+
+                메뉴를 선택해주세요.
+                종료하시려면 9를 눌러주세요.
+                """);
+    }
+    
+    public static void main(String[] args) {
+        // ex01();
+
+        // 정적메서드 호출방식
+        // Basic.getLotto();
+        Basic b = new Basic();
+        b.printMenu();
+    }
 }
