@@ -22,7 +22,7 @@ public class inputUtil {
             String text = "";
             // trim(): 앞뒤 공백제거
             text = scan.nextLine().trim();
-            System.out.println("사용자 입력값 : " + text);
+            // System.out.println("사용자 입력값 : " + text);
 
             if(text.isEmpty()){
                 // 남은 코드블럭을 실행하지 않고, 다음 반복문으로 넘어가기
@@ -51,11 +51,31 @@ public class inputUtil {
                 scan.nextLine();
                 continue;
             }
-            System.out.println("사용자 입력값" + i);
+            // System.out.print("사용자 입력값 : " + i);
             return i;
         }
     }
 
+    public static double getDouble(String msg){
+        System.out.println(msg);
+        double d = 0.0;
+
+        while (true) {
+            try{
+                d = scan.nextDouble();
+                scan.nextLine();
+
+                break;
+            } catch(Exception e){
+                System.out.print("실수만 입력 가능");
+                scan.nextLine();
+            }
+        }
+
+
+
+        return d;
+    }
 
     public static void main(String[] args) {
         // 정적필드, 정적메서드
