@@ -52,7 +52,7 @@ public class HRApp {
                 if (empDto != null) {
                     System.out.println(empDto);
 
-                    String ent_yn = inputUtil.getString("퇴사 처리 하시겠습니까 ?(Y/N)")
+                    String ent_yn = inputUtil.getString("퇴사 처리 하시겠습니까 ?(Y/N)");
                     if ("y".equalsIgnoreCase(ent_yn)) {
                         // 퇴사 처리 - 사번을 이용해서 퇴사 처리
                         int res = empDao.updateEntYn(empDto.getEmpId());

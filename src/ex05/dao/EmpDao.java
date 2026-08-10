@@ -40,7 +40,8 @@ public class EmpDao {
             while (rs.next()) {
                 String empId = rs.getString(1);                
                 String empName = rs.getString(2);                
-                int salary = rs.getInt(8);                
+                int salary = rs.getInt(8);
+                                
                 
                 // dto생성및 리스트에 담기
                 list.add(new EmpDTO(empId, empName, salary));

@@ -1,9 +1,18 @@
 package ex05.dto;
 
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+// @AllArgsConstructor
+@NoArgsConstructor
+
 public class EmpDTO {
     String empId;
     String empName;
     int salary;
+    String empNo;
     
     public EmpDTO(String empId, String empName, int salary) {
         this.empId = empId;
@@ -13,32 +22,9 @@ public class EmpDTO {
 
     @Override
     public String toString() {
-        return "%s %s %s".formatted(empId, empName, salary);
+        return "%s %s %s %s".formatted(empId, empName, salary, empNo);
     }
     
-    public String getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(String empId) {
-        this.empId = empId;
-    }
-
-    public String getEmpName() {
-        return empName;
-    }
-
-    public void setEmpName(String empName) {
-        this.empName = empName;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
+    
     
 }
