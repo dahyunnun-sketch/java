@@ -19,6 +19,9 @@ public class HRApp {
 
     public static void main(String[] args) {
 
+        EmpDao empDao = new EmpDao();
+        DeptDao deptDao = new DeptDao();
+
         System.out.println("""
                 ------------------------------------
                 사원관리 프로그램에 오신걸 환영합니다➰
