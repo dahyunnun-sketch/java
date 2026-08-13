@@ -22,8 +22,6 @@ public class App {
         // str = str.toUpperCase();
 
         // 위 두개를 합침
-        
-        
         str = str.trim().toUpperCase();
         System.out.println(str);
         
